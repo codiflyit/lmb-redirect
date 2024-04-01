@@ -55,6 +55,7 @@ Route::get('/author/{slug}', function ($slug) {
     // return view('welcome');
 });
 Route::get('/{idOne}/{idTwo}/{idThree}/{slug}', function ($idOne, $idTwo, $idThree, $slug) {
-    return Redirect::to(env('LMB_URL').'/article/'.$slug);
+    $newSlug = explode($idThree.'-', $slug);
+    return Redirect::to(env('LMB_URL').'/article/'.$newSlug[1]);
     // return view('welcome');
 });

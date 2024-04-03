@@ -20,42 +20,52 @@ Route::get('/', function () {
 });
 Route::get('/login', function () {
     return Redirect::to(env('LMB_URL').'/login');
-    // return view('welcome');
 });
 Route::get('/register', function () {
     return Redirect::to(env('LMB_URL').'/signup');
-    // return view('welcome');
 });
 Route::get('/category/{slug}', function () {
     return Redirect::to(env('PLUC_URL').'/categories');
-    // return view('welcome');
+});
+Route::get('/tag/{slug}', function () {
+    return Redirect::to(env('PLUC_URL').'/categories');
 });
 Route::get('/about-us', function () {
-    return Redirect::to(env('LMB_URL').'/about-us');
-    // return view('welcome');
+    return Redirect::to(env('PLUC_URL').'/about-us');
 });
 Route::get('/career', function () {
     return Redirect::to(env('LMB_URL').'/career');
-    // return view('welcome');
 });
 Route::get('/cookie-policy', function () {
     return Redirect::to(env('LMB_URL').'/cookie-policy');
-    // return view('welcome');
 });
 Route::get('/privacy', function () {
     return Redirect::to(env('LMB_URL').'/privacy');
-    // return view('welcome');
 });
 Route::get('/terms', function () {
     return Redirect::to(env('LMB_URL').'/terms');
-    // return view('welcome');
+});
+Route::get('/articles', function () {
+    return Redirect::to(env('LMB_URL').'/articles');
+});
+Route::get('/faq', function () {
+    return Redirect::to(env('LMB_URL').'/faq');
+});
+Route::get('/media', function () {
+    return Redirect::to(env('PLUC_URL').'/business#media');
 });
 Route::get('/author/{slug}', function ($slug) {
     return Redirect::to(env('PLUC_URL').'/creator/'.$slug);
-    // return view('welcome');
+});
+Route::get('/{slug}', function () {
+    return Redirect::to(env('LMB_URL'));
 });
 Route::get('/{idOne}/{idTwo}/{idThree}/{slug}', function ($idOne, $idTwo, $idThree, $slug) {
     $newSlug = explode($idThree.'-', $slug);
-    return Redirect::to(env('LMB_URL').'/article/'.$newSlug[1]);
-    // return view('welcome');
+    if($newSlug[1]) {
+        return Redirect::to(env('LMB_URL').'/article/'.$newSlug[1]);
+    }
+    else {
+        return Redirect::to(env('LMB_URL').'/article/'.$slug);
+    }
 });

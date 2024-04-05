@@ -62,7 +62,7 @@ Route::get('/{slug}', function () {
 });
 Route::get('/{idOne}/{idTwo}/{idThree}/{slug}', function ($idOne, $idTwo, $idThree, $slug) {
     $newSlug = explode($idThree.'-', $slug);
-    if($newSlug[1]) {
+    if(!empty($newSlug[1])) {
         return Redirect::to(env('LMB_URL').'/article/'.$newSlug[1]);
     }
     else {

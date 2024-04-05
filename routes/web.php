@@ -60,6 +60,9 @@ Route::get('/author/{slug}', function ($slug) {
 Route::get('/{slug}', function () {
     return Redirect::to(env('LMB_URL'));
 });
+Route::get('/article/{slug}', function ($slug) {
+    return Redirect::to(env('LMB_URL').'/article/'.$slug);
+});
 Route::get('/{idOne}/{idTwo}/{idThree}/{slug}', function ($idOne, $idTwo, $idThree, $slug) {
     $newSlug = explode($idThree.'-', $slug);
     if(!empty($newSlug[1])) {

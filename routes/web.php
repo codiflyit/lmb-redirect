@@ -52,7 +52,7 @@ Route::get('/faq', function () {
     return Redirect::to(env('LMB_URL').'/faq');
 });
 Route::get('/media', function () {
-    return Redirect::to(env('PLUC_URL').'/business#media');
+    return Redirect::to(env('LMB_URL').'/media');
 });
 Route::get('/author/{slug}', function ($slug) {
     return Redirect::to(env('PLUC_URL').'/creator/'.$slug);
